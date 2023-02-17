@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct FlightOffsetView: View {
+    @Binding var path: [Routes]
+
     var body: some View {
         GeometryReader { geo in
             ZStack {
@@ -37,6 +39,7 @@ struct FlightOffsetView: View {
                             .foregroundColor(Color("primary"))
                             .frame(width: 16, height: 16)
                             .padding(.horizontal, 10)
+
                         Text("New york (JFK) to Paris (CDG)")
                             .foregroundColor(Color("primary"))
                             .font(.system(size: 16))
@@ -52,6 +55,7 @@ struct FlightOffsetView: View {
                             .foregroundColor(Color("secondary"))
                             .font(.title)
                             .padding(.bottom, 16)
+
                         Text("Kg C02 Emitted")
                             .foregroundColor(Color("primary"))
                             .font(.system(size: 16))
@@ -66,13 +70,13 @@ struct FlightOffsetView: View {
                     .padding(.horizontal, 20)
 
                     Button(action: {
-                        
+                        path.removeAll()
                     }, label: {
                         HStack {
                             Text("Start Over")
                                 .tint(Color("primary"))
                                 .font(.system(size: 16))
-                            
+
                             Image("ic_next")
                                 .resizable()
                                 .scaledToFit()
@@ -89,12 +93,13 @@ struct FlightOffsetView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
+            .navigationBarBackButtonHidden()
         }
     }
 }
 
 struct FlightOffsetView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightOffsetView()
+        FlightOffsetView(path: .constant([.flightOffset]))
     }
 }

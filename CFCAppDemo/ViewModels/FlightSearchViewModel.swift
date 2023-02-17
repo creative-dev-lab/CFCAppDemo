@@ -10,6 +10,8 @@ import Foundation
 class FlightSearchViewModel: ObservableObject {
     @Published var fromLocation: String = ""
     @Published var destination: String = ""
+    @Published var isFromLocationEditing: Bool = false
+    @Published var isDestinationEditing: Bool = false
     @Published var isLoading: Bool = false
 
     var nextDisabled: Bool {

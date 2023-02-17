@@ -15,6 +15,8 @@
 		3C444A73299F890500EA7DB0 /* FlightSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */; };
 		3C444A75299F94DD00EA7DB0 /* FlightOffsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */; };
 		3C444A78299FD83600EA7DB0 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A77299FD83600EA7DB0 /* Routes.swift */; };
+		3C95917D299FE72D00209074 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95917C299FE72D00209074 /* SearchTextField.swift */; };
+		3C959180299FEB2C00209074 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95917F299FEB2C00209074 /* SearchListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchViewModel.swift; sourceTree = "<group>"; };
 		3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOffsetView.swift; sourceTree = "<group>"; };
 		3C444A77299FD83600EA7DB0 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		3C95917C299FE72D00209074 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		3C95917F299FEB2C00209074 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,6 @@
 				3C444A6E299F7E0D00EA7DB0 /* Assets */,
 				3C444A76299FD82800EA7DB0 /* Config */,
 				3C444A6D299F7E0000EA7DB0 /* Views */,
-				3C444A71299F88F200EA7DB0 /* ViewModels */,
 				3C444A64299F7AB300EA7DB0 /* Preview Content */,
 			);
 			path = CFCAppDemo;
@@ -88,8 +91,8 @@
 		3C444A6D299F7E0000EA7DB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3C95917B299FE70900209074 /* FlightSearch */,
 				3C444A60299F7AB200EA7DB0 /* ContentView.swift */,
-				3C444A6F299F80D800EA7DB0 /* FlightSearchView.swift */,
 				3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */,
 			);
 			path = Views;
@@ -103,20 +106,23 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		3C444A71299F88F200EA7DB0 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		3C444A76299FD82800EA7DB0 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				3C444A77299FD83600EA7DB0 /* Routes.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		3C95917B299FE70900209074 /* FlightSearch */ = {
+			isa = PBXGroup;
+			children = (
+				3C444A6F299F80D800EA7DB0 /* FlightSearchView.swift */,
+				3C95917C299FE72D00209074 /* SearchTextField.swift */,
+				3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */,
+				3C95917F299FEB2C00209074 /* SearchListView.swift */,
+			);
+			path = FlightSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +199,8 @@
 				3C444A75299F94DD00EA7DB0 /* FlightOffsetView.swift in Sources */,
 				3C444A61299F7AB200EA7DB0 /* ContentView.swift in Sources */,
 				3C444A78299FD83600EA7DB0 /* Routes.swift in Sources */,
+				3C959180299FEB2C00209074 /* SearchListView.swift in Sources */,
+				3C95917D299FE72D00209074 /* SearchTextField.swift in Sources */,
 				3C444A5F299F7AB200EA7DB0 /* CFCAppDemoApp.swift in Sources */,
 				3C444A73299F890500EA7DB0 /* FlightSearchViewModel.swift in Sources */,
 			);

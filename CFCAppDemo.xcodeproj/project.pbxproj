@@ -11,6 +11,9 @@
 		3C444A61299F7AB200EA7DB0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A60299F7AB200EA7DB0 /* ContentView.swift */; };
 		3C444A63299F7AB300EA7DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C444A62299F7AB300EA7DB0 /* Assets.xcassets */; };
 		3C444A66299F7AB300EA7DB0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C444A65299F7AB300EA7DB0 /* Preview Assets.xcassets */; };
+		3C444A70299F80D800EA7DB0 /* FlightSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A6F299F80D800EA7DB0 /* FlightSearchView.swift */; };
+		3C444A73299F890500EA7DB0 /* FlightSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */; };
+		3C444A75299F94DD00EA7DB0 /* FlightOffsetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		3C444A60299F7AB200EA7DB0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3C444A62299F7AB300EA7DB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C444A65299F7AB300EA7DB0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3C444A6F299F80D800EA7DB0 /* FlightSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchView.swift; sourceTree = "<group>"; };
+		3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchViewModel.swift; sourceTree = "<group>"; };
+		3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOffsetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +57,10 @@
 		3C444A5D299F7AB200EA7DB0 /* CFCAppDemo */ = {
 			isa = PBXGroup;
 			children = (
-				3C444A5E299F7AB200EA7DB0 /* CFCAppDemoApp.swift */,
-				3C444A60299F7AB200EA7DB0 /* ContentView.swift */,
-				3C444A62299F7AB300EA7DB0 /* Assets.xcassets */,
+				3C444A6C299F7DE600EA7DB0 /* Application */,
+				3C444A6E299F7E0D00EA7DB0 /* Assets */,
+				3C444A6D299F7E0000EA7DB0 /* Views */,
+				3C444A71299F88F200EA7DB0 /* ViewModels */,
 				3C444A64299F7AB300EA7DB0 /* Preview Content */,
 			);
 			path = CFCAppDemo;
@@ -65,6 +72,40 @@
 				3C444A65299F7AB300EA7DB0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3C444A6C299F7DE600EA7DB0 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3C444A5E299F7AB200EA7DB0 /* CFCAppDemoApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3C444A6D299F7E0000EA7DB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3C444A60299F7AB200EA7DB0 /* ContentView.swift */,
+				3C444A6F299F80D800EA7DB0 /* FlightSearchView.swift */,
+				3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3C444A6E299F7E0D00EA7DB0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3C444A62299F7AB300EA7DB0 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3C444A71299F88F200EA7DB0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C444A70299F80D800EA7DB0 /* FlightSearchView.swift in Sources */,
+				3C444A75299F94DD00EA7DB0 /* FlightOffsetView.swift in Sources */,
 				3C444A61299F7AB200EA7DB0 /* ContentView.swift in Sources */,
 				3C444A5F299F7AB200EA7DB0 /* CFCAppDemoApp.swift in Sources */,
+				3C444A73299F890500EA7DB0 /* FlightSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

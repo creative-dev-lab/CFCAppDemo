@@ -22,8 +22,8 @@ struct SearchListView: View {
                         .foregroundColor(Color("primary"))
                         .font(.system(size: 16))
                         .padding(.horizontal, 10)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 })
-                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .frame(alignment: .leading)
@@ -33,7 +33,7 @@ struct SearchListView: View {
 struct SearchListView_Previews: PreviewProvider {
     static var previews: some View {
         SearchListView(
-            list: ["New York", "London", "Biggin Hill", "Biggin Hill"],
+            list: ["New York", "London", "Biggin Hill"],
             selectedItem: .constant("New York")
         )
     }

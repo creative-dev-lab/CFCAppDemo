@@ -55,11 +55,12 @@ struct FlightSearchView: View {
                 Image("ic_search")
                     .resizable()
                     .scaledToFit()
-                    .tint(Color("primary"))
+                    .foregroundColor(Color("primary"))
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 10)
                 TextField("From (Location)", text: $flightSearchVM.fromLocation)
                     .tint(Color("primary"))
+                    .foregroundColor(Color("primary"))
                     .font(.system(size: 16))
                     .padding(.trailing, 10)
                     .keyboardType(.default)
@@ -76,11 +77,12 @@ struct FlightSearchView: View {
                 Image("ic_search")
                     .resizable()
                     .scaledToFit()
-                    .tint(Color("primary"))
+                    .foregroundColor(Color("primary"))
                     .frame(width: 16, height: 16)
                     .padding(.trailing, 10)
                 TextField("To (Destination)", text: $flightSearchVM.destination)
                     .tint(Color("primary"))
+                    .foregroundColor(Color("primary"))
                     .font(.system(size: 16))
                     .padding(.trailing, 10)
                     .keyboardType(.default)
@@ -123,7 +125,7 @@ struct FlightSearchView: View {
             .frame(maxWidth: .infinity)
             .padding(.bottom, 20)
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }
 

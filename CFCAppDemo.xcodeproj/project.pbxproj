@@ -17,6 +17,15 @@
 		3C444A78299FD83600EA7DB0 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C444A77299FD83600EA7DB0 /* Routes.swift */; };
 		3C95917D299FE72D00209074 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95917C299FE72D00209074 /* SearchTextField.swift */; };
 		3C959180299FEB2C00209074 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95917F299FEB2C00209074 /* SearchListView.swift */; };
+		3C95919129A03BE100209074 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919029A03BE100209074 /* NetworkEndpoint.swift */; };
+		3C95919329A03C1700209074 /* NetWorkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919229A03C1700209074 /* NetWorkClient.swift */; };
+		3C95919529A03C6900209074 /* CFCEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919429A03C6900209074 /* CFCEndpoints.swift */; };
+		3C95919729A03CB800209074 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919629A03CB800209074 /* Consts.swift */; };
+		3C95919929A03D8D00209074 /* CFCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919829A03D8D00209074 /* CFCClient.swift */; };
+		3C95919C29A03EA600209074 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919B29A03EA600209074 /* SearchResults.swift */; };
+		3C95919E29A041F300209074 /* OffsetResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919D29A041F300209074 /* OffsetResult.swift */; };
+		3C9591A429A049F400209074 /* API_KEY.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9591A329A049F400209074 /* API_KEY.plist */; };
+		3C9591A629A04A3E00209074 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9591A529A04A3E00209074 /* Env.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +40,15 @@
 		3C444A77299FD83600EA7DB0 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		3C95917C299FE72D00209074 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		3C95917F299FEB2C00209074 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		3C95919029A03BE100209074 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
+		3C95919229A03C1700209074 /* NetWorkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkClient.swift; sourceTree = "<group>"; };
+		3C95919429A03C6900209074 /* CFCEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFCEndpoints.swift; sourceTree = "<group>"; };
+		3C95919629A03CB800209074 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		3C95919829A03D8D00209074 /* CFCClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFCClient.swift; sourceTree = "<group>"; };
+		3C95919B29A03EA600209074 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
+		3C95919D29A041F300209074 /* OffsetResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetResult.swift; sourceTree = "<group>"; };
+		3C9591A329A049F400209074 /* API_KEY.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_KEY.plist; sourceTree = "<group>"; };
+		3C9591A529A04A3E00209074 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +84,11 @@
 				3C444A6C299F7DE600EA7DB0 /* Application */,
 				3C444A6E299F7E0D00EA7DB0 /* Assets */,
 				3C444A76299FD82800EA7DB0 /* Config */,
+				3C95918E29A03BB600209074 /* Client */,
+				3C95919A29A03E8100209074 /* Models */,
 				3C444A6D299F7E0000EA7DB0 /* Views */,
 				3C444A64299F7AB300EA7DB0 /* Preview Content */,
+				3C9591A329A049F400209074 /* API_KEY.plist */,
 			);
 			path = CFCAppDemo;
 			sourceTree = "<group>";
@@ -110,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				3C444A77299FD83600EA7DB0 /* Routes.swift */,
+				3C95919629A03CB800209074 /* Consts.swift */,
+				3C9591A529A04A3E00209074 /* Env.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -123,6 +146,34 @@
 				3C95917F299FEB2C00209074 /* SearchListView.swift */,
 			);
 			path = FlightSearch;
+			sourceTree = "<group>";
+		};
+		3C95918E29A03BB600209074 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				3C95918F29A03BD000209074 /* Endpoints */,
+				3C95919229A03C1700209074 /* NetWorkClient.swift */,
+				3C95919829A03D8D00209074 /* CFCClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		3C95918F29A03BD000209074 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				3C95919029A03BE100209074 /* NetworkEndpoint.swift */,
+				3C95919429A03C6900209074 /* CFCEndpoints.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		3C95919A29A03E8100209074 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3C95919B29A03EA600209074 /* SearchResults.swift */,
+				3C95919D29A041F300209074 /* OffsetResult.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C9591A429A049F400209074 /* API_KEY.plist in Resources */,
 				3C444A66299F7AB300EA7DB0 /* Preview Assets.xcassets in Resources */,
 				3C444A63299F7AB300EA7DB0 /* Assets.xcassets in Resources */,
 			);
@@ -196,11 +248,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C444A70299F80D800EA7DB0 /* FlightSearchView.swift in Sources */,
+				3C95919729A03CB800209074 /* Consts.swift in Sources */,
 				3C444A75299F94DD00EA7DB0 /* FlightOffsetView.swift in Sources */,
+				3C95919529A03C6900209074 /* CFCEndpoints.swift in Sources */,
+				3C95919E29A041F300209074 /* OffsetResult.swift in Sources */,
+				3C95919929A03D8D00209074 /* CFCClient.swift in Sources */,
+				3C95919129A03BE100209074 /* NetworkEndpoint.swift in Sources */,
+				3C95919329A03C1700209074 /* NetWorkClient.swift in Sources */,
 				3C444A61299F7AB200EA7DB0 /* ContentView.swift in Sources */,
+				3C95919C29A03EA600209074 /* SearchResults.swift in Sources */,
 				3C444A78299FD83600EA7DB0 /* Routes.swift in Sources */,
 				3C959180299FEB2C00209074 /* SearchListView.swift in Sources */,
 				3C95917D299FE72D00209074 /* SearchTextField.swift in Sources */,
+				3C9591A629A04A3E00209074 /* Env.swift in Sources */,
 				3C444A5F299F7AB200EA7DB0 /* CFCAppDemoApp.swift in Sources */,
 				3C444A73299F890500EA7DB0 /* FlightSearchViewModel.swift in Sources */,
 			);

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FlightOffsetView: View {
     @Binding var path: [Routes]
+    var offsetResult: OffsetResult
+    var fromLocationToDestination: String
 
     var body: some View {
         GeometryReader { geo in
@@ -40,7 +42,7 @@ struct FlightOffsetView: View {
                             .frame(width: 16, height: 16)
                             .padding(.horizontal, 10)
 
-                        Text("New york (JFK) to Paris (CDG)")
+                        Text(fromLocationToDestination)
                             .foregroundColor(Color("primary"))
                             .font(.system(size: 16))
                             .padding(.trailing, 10)
@@ -51,7 +53,7 @@ struct FlightOffsetView: View {
                     .padding(.horizontal, 20)
 
                     VStack {
-                        Text("10")
+                        Text(String(offsetResult.footprint))
                             .foregroundColor(Color("secondary"))
                             .font(.title)
                             .padding(.bottom, 16)
@@ -100,6 +102,10 @@ struct FlightOffsetView: View {
 
 struct FlightOffsetView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightOffsetView(path: .constant([.flightOffset]))
+        FlightOffsetView(
+            path: .constant([.flightOffset]),
+            offsetResult: OffsetResult.example,
+            fromLocationToDestination: "New york (JFK) to Paris (CDG)"
+        )
     }
 }

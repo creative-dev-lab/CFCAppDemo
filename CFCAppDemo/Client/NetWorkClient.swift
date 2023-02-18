@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+/// Not sure what would error model look like
+/// But this could be one of the best demonstrations to handle this
 struct NetworkClientErrorResponseModel: Codable {
     let message: String
     let code: Int
@@ -48,7 +50,7 @@ extension NetworkClient {
         return session.dataTaskPublisher(for: request)
             .tryMap {
                 guard let response = $0.response as? HTTPURLResponse else {
-                    throw NSError(domain: "com.movies.demo.networkclient",
+                    throw NSError(domain: "com.git.CFCAppDemo.networkclient",
                                                 code: -1,
                                                 userInfo: [NSLocalizedDescriptionKey: "Missing response"])
                 }
@@ -56,7 +58,7 @@ extension NetworkClient {
                     if let errorModel = try? JSONDecoder().decode(NetworkClientErrorResponseModel.self, from: $0.data) {
                         throw NetworkClientError.message(statusCode: errorModel.code, message: errorModel.message)
                     } else {
-                        throw NSError(domain: "com.movies.demo.networkclient",
+                        throw NSError(domain: "com.git.CFCAppDemo.networkclient",
                                                     code: response.statusCode,
                                                     userInfo: [NSLocalizedDescriptionKey: HTTPURLResponse.localizedString(forStatusCode: response.statusCode)])
                     }

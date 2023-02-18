@@ -20,3 +20,12 @@ struct OffsetResult: Codable {
         case footprint = "kg_co2_footprint"
     }
 }
+
+extension OffsetResult {
+    static let example = OffsetResult(
+        id: "1",
+        orgAirport: "New York (JFK)",
+        destAirport: "Paris (CDG)",
+        footprint: 10
+    )
+}

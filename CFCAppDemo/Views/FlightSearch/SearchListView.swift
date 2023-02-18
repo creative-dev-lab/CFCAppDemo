@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct SearchListView: View {
-    var list: [String]
-    @Binding var selectedItem: String
+    var list: [SearchResult]
+    @Binding var selectedItem: SearchResult?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            ForEach(Array(list).sorted(by: <), id: \.self) { item in
+            ForEach(Array(list), id: \.self) { item in
                 Button(action: {
                     selectedItem = item
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
                 }, label: {
-                    Text(item)
+                    Text("\(item.municipality) (\(item.iataCode)) - \(item.airportName)")
                         .foregroundColor(Color("primary"))
                         .font(.system(size: 16))
                         .padding(.horizontal, 10)
@@ -33,8 +32,10 @@ struct SearchListView: View {
 struct SearchListView_Previews: PreviewProvider {
     static var previews: some View {
         SearchListView(
-            list: ["New York", "London", "Biggin Hill"],
-            selectedItem: .constant("New York")
+            list: [
+                SearchResult.example
+            ],
+            selectedItem: .constant(SearchResult.example)
         )
     }
 }

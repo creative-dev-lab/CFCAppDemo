@@ -12,7 +12,7 @@ struct SearchResults: Codable {
     let results: [SearchResult]
 }
 
-struct SearchResult: Codable {
+struct SearchResult: Codable, Hashable {
     let airportID: String
     let iataCode: String
     let airportName: String
@@ -25,4 +25,14 @@ struct SearchResult: Codable {
         case airportName = "airport_name"
         case country, municipality
     }
+}
+
+extension SearchResult {
+    static let example = SearchResult(
+        airportID: "3fd14d47-d375-4768-a0eb-cff970e23e35",
+        iataCode: "DPA",
+        airportName: "Dupage Airport",
+        country: "United States",
+        municipality: "West Chicago"
+    )
 }

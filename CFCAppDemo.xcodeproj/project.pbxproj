@@ -26,6 +26,7 @@
 		3C95919E29A041F300209074 /* OffsetResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95919D29A041F300209074 /* OffsetResult.swift */; };
 		3C9591A429A049F400209074 /* API_KEY.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9591A329A049F400209074 /* API_KEY.plist */; };
 		3C9591A629A04A3E00209074 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9591A529A04A3E00209074 /* Env.swift */; };
+		3C9591A929A0556800209074 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9591A829A0556800209074 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		3C95919D29A041F300209074 /* OffsetResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetResult.swift; sourceTree = "<group>"; };
 		3C9591A329A049F400209074 /* API_KEY.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API_KEY.plist; sourceTree = "<group>"; };
 		3C9591A529A04A3E00209074 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
+		3C9591A829A0556800209074 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				3C95918E29A03BB600209074 /* Client */,
 				3C95919A29A03E8100209074 /* Models */,
 				3C444A6D299F7E0000EA7DB0 /* Views */,
+				3C9591A729A0555A00209074 /* Utils */,
 				3C444A64299F7AB300EA7DB0 /* Preview Content */,
 				3C9591A329A049F400209074 /* API_KEY.plist */,
 			);
@@ -112,9 +115,9 @@
 		3C444A6D299F7E0000EA7DB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3C95917B299FE70900209074 /* FlightSearch */,
 				3C444A60299F7AB200EA7DB0 /* ContentView.swift */,
-				3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */,
+				3C95917B299FE70900209074 /* FlightSearch */,
+				3C9887FB29A0CD10007574EB /* FlightOffset */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				3C444A6F299F80D800EA7DB0 /* FlightSearchView.swift */,
-				3C95917C299FE72D00209074 /* SearchTextField.swift */,
 				3C444A72299F890500EA7DB0 /* FlightSearchViewModel.swift */,
+				3C95917C299FE72D00209074 /* SearchTextField.swift */,
 				3C95917F299FEB2C00209074 /* SearchListView.swift */,
 			);
 			path = FlightSearch;
@@ -174,6 +177,22 @@
 				3C95919D29A041F300209074 /* OffsetResult.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3C9591A729A0555A00209074 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3C9591A829A0556800209074 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3C9887FB29A0CD10007574EB /* FlightOffset */ = {
+			isa = PBXGroup;
+			children = (
+				3C444A74299F94DD00EA7DB0 /* FlightOffsetView.swift */,
+			);
+			path = FlightOffset;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +277,7 @@
 				3C444A61299F7AB200EA7DB0 /* ContentView.swift in Sources */,
 				3C95919C29A03EA600209074 /* SearchResults.swift in Sources */,
 				3C444A78299FD83600EA7DB0 /* Routes.swift in Sources */,
+				3C9591A929A0556800209074 /* Utils.swift in Sources */,
 				3C959180299FEB2C00209074 /* SearchListView.swift in Sources */,
 				3C95917D299FE72D00209074 /* SearchTextField.swift in Sources */,
 				3C9591A629A04A3E00209074 /* Env.swift in Sources */,
@@ -393,6 +413,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CFCAppDemo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "CFC App";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -421,6 +442,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CFCAppDemo/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "CFC App";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

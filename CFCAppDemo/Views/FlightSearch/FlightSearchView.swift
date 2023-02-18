@@ -65,7 +65,7 @@ struct FlightSearchView: View {
                     .overlay {
                         if flightSearchVM.isFromSearching {
                             SearchListView(
-                                list: ["New York", "London", "Biggin Hill"],
+                                list: flightSearchVM.fromLocationResults,
                                 selectedItem: $flightSearchVM.fromLocationSelectedResult
                             )
                             .padding(.vertical, 10)
@@ -87,7 +87,7 @@ struct FlightSearchView: View {
                     .overlay {
                         if flightSearchVM.isToSearching {
                             SearchListView(
-                                list: ["New York", "London", "Biggin Hill"],
+                                list: flightSearchVM.destinationResults,
                                 selectedItem: $flightSearchVM.destinationSelectedResult
                             )
                             .padding(.vertical, 10)
@@ -110,8 +110,19 @@ struct FlightSearchView: View {
 
                     ZStack(alignment: .center) {
                         Button(action: {
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to:nil, from:nil, for:nil)
-                            path.append(.flightOffset)
+                            Utils.closeKeyboard()
+                            guard let origin = flightSearchVM.fromLocationSelectedResult,
+                                  let dest = flightSearchVM.destinationSelectedResult else {
+                                return
+                            }
+                            flightSearchVM.saveLocation(
+                                originAirportID: origin.airportID,
+                                destinationAirportID: dest.airportID
+                            ) { isSuccess in
+                                if isSuccess {
+                                    path.append(.flightOffset)
+                                }
+                            }
                         }, label: {
                             if flightSearchVM.isLoading {
                                 ProgressView()
@@ -131,14 +142,54 @@ struct FlightSearchView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 20)
                 }
+                .onReceive(flightSearchVM.$fromLocation.debounce(for: 0.75, scheduler: DispatchQueue.main)) {
+                    guard !$0.isEmpty else {
+                        flightSearchVM.fromLocationResults = []
+                        return
+                    }
+                    flightSearchVM.search(text: $0, isFromLocation: true)
+                }
+                .onReceive(flightSearchVM.$destination.debounce(for: 0.75, scheduler: DispatchQueue.main)) {
+                    guard !$0.isEmpty else {
+                        flightSearchVM.destinationResults = []
+                        return
+                    }
+                    flightSearchVM.search(text: $0, isFromLocation: false)
+                }
+                .onReceive(flightSearchVM.$fromLocationSelectedResult) {
+                    guard let result = $0 else { return }
+                    flightSearchVM.fromLocation = "\(result.municipality) (\(result.iataCode)) - \(result.airportName)"
+                    flightSearchVM.fromLocationResults = []
+                    Utils.closeKeyboard()
+                }
+                .onReceive(flightSearchVM.$destinationSelectedResult) {
+                    guard let result = $0 else { return }
+                    flightSearchVM.destination = "\(result.municipality) (\(result.iataCode)) - \(result.airportName)"
+                    flightSearchVM.destinationResults = []
+                    Utils.closeKeyboard()
+                }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             }
             .navigationDestination(for: Routes.self) { route in
                 switch route {
                 case .flightOffset:
-                    FlightOffsetView(path: $path)
+                    if let offsetResult = flightSearchVM.offsetResult,
+                          !flightSearchVM.fromLocationToDestination.isEmpty {
+                        FlightOffsetView(
+                            path: $path,
+                            offsetResult: offsetResult,
+                            fromLocationToDestination: flightSearchVM.fromLocationToDestination
+                        )
+                    }
                 }
             }
+        }
+        .alert(item: $flightSearchVM.apiError) {_ in
+            Alert(
+                title: Text("Error Occurred"),
+                message: Text(flightSearchVM.apiError?.description ?? "unknown error"),
+                dismissButton: .default(Text("Ok"))
+            )
         }
     }
 }

@@ -7,4 +7,4 @@
 
 import Foundation
 
-let cfcBaseUrl = "toohla-staging.herokuapp.com"
+let cfcBaseUrl = "toohla-pr-33.herokuapp.com"

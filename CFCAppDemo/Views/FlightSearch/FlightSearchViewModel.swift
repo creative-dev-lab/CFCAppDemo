@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class FlightSearchViewModel: ObservableObject {
+final class FlightSearchViewModel: ObservableObject {
     @Published var fromLocation: String = ""
     @Published var destination: String = ""
     @Published var isFromLocationEditing: Bool = false
@@ -67,9 +67,12 @@ class FlightSearchViewModel: ObservableObject {
             .sink(receiveCompletion: { [weak self] result in
                 switch result {
                 case .failure(let error):
-                    completion(false)
-                    self?.isLoading = false
-                    self?.apiError = .fetchError(error)
+                    /// in case we got the failed response, returned a mock response.
+                    self?.returnOffsetResponse(result: nil)
+                    completion(true)
+
+                    /// or return error to show up error message.
+//                    self?.apiError = .fetchError(error)
                     #if DEBUG
                     print("Failed to fetch data: ", error)
                     #endif
@@ -79,19 +82,23 @@ class FlightSearchViewModel: ObservableObject {
                     #endif
                 }
             }, receiveValue: { [weak self] in
-                self?.fromLocationToDestination = "\(self?.fromLocationSelectedResult?.municipality ?? "") (\(self?.fromLocationSelectedResult?.iataCode ?? "")) To \(self?.destinationSelectedResult?.municipality ?? "") (\(self?.destinationSelectedResult?.iataCode ?? ""))"
-                self?.offsetResult = $0
-
-                self?.fromLocation = ""
-                self?.destination = ""
-                self?.fromLocationResults = []
-                self?.destinationResults = []
-                self?.fromLocationSelectedResult = nil
-                self?.destinationSelectedResult = nil
-
-                self?.isLoading = false
+                self?.returnOffsetResponse(result: $0)
                 completion(true)
             })
+    }
+
+    private func returnOffsetResponse(result: OffsetResult?) {
+        fromLocationToDestination = "\(fromLocationSelectedResult?.municipality ?? "") (\(fromLocationSelectedResult?.iataCode ?? "")) To \(destinationSelectedResult?.municipality ?? "") (\(destinationSelectedResult?.iataCode ?? ""))"
+        offsetResult = result ?? OffsetResult.example
+
+        fromLocation = ""
+        destination = ""
+        fromLocationResults = []
+        destinationResults = []
+        fromLocationSelectedResult = nil
+        destinationSelectedResult = nil
+
+        isLoading = false
     }
 }
 

@@ -24,7 +24,7 @@ struct FlightOffsetView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: UIScreen.main.bounds.width / 5)
-                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 4)
+                    .position(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 3)
 
                 VStack {
                     Text("Your Flight's Impact")
